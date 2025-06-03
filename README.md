@@ -2,8 +2,7 @@
 
 **Desafio do curso Fullstack do Sujeito Programador.**
 
-O desafio consiste em gerenciar um carrinho de compras usando o context-api, os produtos listados são consumidos por uma
-api fake através do json-server.
+O desafio consiste em gerenciar um carrinho de compras usando o context-api, os produtos listados são consumidos por um json armazenado no npoint.
 
 **Tecnologias utilizadas**
 
