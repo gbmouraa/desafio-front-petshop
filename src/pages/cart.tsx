@@ -1,9 +1,16 @@
 import { useContext } from "react";
 import { CartContext } from "../contexts/cart-context";
 import { Header } from "../components/header";
+import toast from "react-hot-toast";
 
 export const Cart = () => {
-  const { cart, total, addCartItem, removeCartItem } = useContext(CartContext);
+  const { cart, total, addCartItem, removeCartItem, checkout } =
+    useContext(CartContext);
+
+  const hanldeCheckout = () => {
+    toast.success("Compra realizada");
+    checkout();
+  };
 
   return (
     <>
@@ -52,7 +59,7 @@ export const Cart = () => {
               </p>
             </div>
           ))}
-          {cart.length > 0 && (
+          {cart.length > 0 ? (
             <div className="mt-4 flex items-center justify-between">
               <p className="text-lg font-medium">
                 Total:{" "}
@@ -61,10 +68,17 @@ export const Cart = () => {
                   currency: "BRL",
                 })}
               </p>
-              <button className="cursor-pointer rounded-full bg-green-500 px-3 py-2 font-bold text-white transition-opacity hover:opacity-70">
+              <button
+                onClick={hanldeCheckout}
+                className="cursor-pointer rounded-full bg-green-500 px-3 py-2 font-bold text-white transition-opacity hover:opacity-70"
+              >
                 Finalizar compra
               </button>
             </div>
+          ) : (
+            <p className="font-medium">
+              Ops, parece que o carrinho está vazio...
+            </p>
           )}
         </section>
       </div>

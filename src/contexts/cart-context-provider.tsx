@@ -55,6 +55,10 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
     totalCartValue(removedItem);
   };
 
+  const checkout = () => {
+    setCart([]);
+  };
+
   const totalCartValue = (cart: CartItem[]) => {
     const totalValue = cart.reduce((acumulator, current) => {
       return acumulator + current.subtotal;
@@ -71,6 +75,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
         addCartItem,
         removeCartItem,
         total,
+        checkout,
       }}
     >
       {children}

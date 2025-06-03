@@ -4,6 +4,7 @@ import type { ProductType } from "../contexts/cart-context";
 import { Header } from "../components/header";
 import { FaCartPlus } from "react-icons/fa6";
 import { api } from "../services/api";
+import toast from "react-hot-toast";
 
 export const Home = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -12,6 +13,7 @@ export const Home = () => {
 
   const handleAddNewItem = (item: ProductType) => {
     addCartItem(item);
+    toast.success("Item adicionado ao carrinho");
   };
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export const Home = () => {
       <Header />
       <div className="px-4 py-6">
         <h1 className="text-xl font-medium text-zinc-700">Lista de produtos</h1>
-        <section className="mt-6 flex w-full max-w-7xl flex-wrap gap-6">
+        <section className="my-6 flex w-full max-w-7xl flex-wrap gap-6">
           {products?.map((product) => (
             <div
               key={product.id}

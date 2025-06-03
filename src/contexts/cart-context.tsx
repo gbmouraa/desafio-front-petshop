@@ -18,6 +18,7 @@ type CartContextData = {
   cartAmount: number;
   addCartItem: (product: ProductType) => void;
   removeCartItem: (product: ProductType) => void;
+  checkout: () => void;
   total: number;
 };
 
